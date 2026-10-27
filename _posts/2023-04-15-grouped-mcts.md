@@ -29,11 +29,7 @@ Second, ending the turn changes the observation much more than any other action:
 
 In practice, the result is an agent that ends its turn far too often, leaving units idle.
 
-Here is roughly how my fixes evolved:
-
-1. **Penalize early end turns.** A small negative reward for ending the turn, proportional to the number of units that haven't acted yet. It helps, but it's a hack and it biases the objective.
-2. **Remove the global end turn.** Instead, each unit gets its own "wait" action, and the turn ends implicitly once every unit has acted. The decision is now local and has the same scale as the unit's other actions, which removes most of the imbalance.
-3. **Discount per turn, not per action.** With many actions per turn, a per-action discount factor makes a turn with ten units much "longer" than a turn with two. Discounting only when the player changes makes values comparable across turns.
+To fix this, I tried removing the global end turn and replacing it with a no-op action per unit: each unit can "wait", and the turn ends once every unit has acted. The decision becomes local, with the same scale as the unit's other actions.
 
 But ending the turn early is actually *very* useful inside the search: it lets the tree quickly see how the opponent can respond, an artificial shortening of the horizon. So instead of removing it entirely, I kept it as an **early end turn** that exists only inside the tree, as we'll see below.
 
@@ -88,7 +84,7 @@ This is where the end turn finds its proper place: it is not a real action of th
 
 ## What worked, what didn't
 
-The action-space fixes were the clearest wins: removing the global end turn and discounting per turn made the agent stop wasting its units, and made learning much more stable.
+The action-space fix was the clearest win: replacing the global end turn with a per-unit no-op made the agent stop wasting its units.
 
 Spatialized rewards and grouping helped on large maps, but they come with a lot of engineering complexity: groups must be recomputed when they're exhausted, the tree has to deal with induced groups and counter groups, and a bad grouping can hide an important interaction (an artillery unit far away can still matter). The learned grouper was promising, but it adds yet another network whose errors interact with the search.
 
