@@ -2,7 +2,7 @@
 layout: post
 title: "Grouped MCTS: searching tactical games one battle at a time"
 date: 2023-04-15 10:00:00 +0200
-tags: [long-post, mcts, model-based, online, action-space]
+tags: [medium-post, mcts, model-based, online, action-space]
 ---
 
 MCTS-based agents such as AlphaZero [[1]](#ref-az) have shown impressive scaling, from chess to Go. But that scaling has limits. In tactical games like Fire Emblem, XCOM or Civilization, each turn consists of *many* actions, one or more per unit, and these actions depend on each other. Vanilla MCTS won't work out of the box there without an absurd amount of compute.
@@ -65,7 +65,7 @@ If the divergence is close to zero, A and B are in different sub-battles. If it'
 
 {% include figure.html src="/assets/img/grouped-mcts/divergence.png" alt="Policy of unit B before and after unit A acts" caption="Measuring independence. When A is far away, B's policy doesn't change after A acts. When A is next to B, it does, so A and B belong to the same group." %}
 
-The nice thing with MCTS is that the tree gives you these pairs of states for free: you often visit both "B plays first" and "A plays, then B" from the same node. I accumulated these divergences during search (weighted by visit counts, as rarely visited nodes have unreliable policies), and used them as training targets for a **grouper network**, a graph/attention network that predicts the pairwise divergences directly from the state. At play time, the groups come from this network instead of the hand-crafted heuristic. Comparing values instead of policies is another option, but policies were the more informative signal in my experiments.
+The nice thing with MCTS is that the tree *gives you these pairs of states for free*: you often visit both "B plays first" and "A plays, then B" from the same node. I accumulated these divergences during search (weighted by visit counts, as rarely visited nodes have unreliable policies), and used them as training targets for a **grouper network**, a graph/attention network that predicts the pairwise divergences directly from the state. At play time, the groups come from this network instead of the hand-crafted heuristic. Comparing values instead of policies is another option, but policies were the more informative signal in my experiments.
 
 ## Grouped MCTS
 
