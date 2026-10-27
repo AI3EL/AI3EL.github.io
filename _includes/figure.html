@@ -1,0 +1,7 @@
+{% comment %}
+Usage: {% include figure.html src="/assets/img/foo.png" alt="..." caption="..." width="90%" %}
+{% endcomment %}
+<figure class="figure">
+  <img src="{{ include.src | relative_url }}" alt="{{ include.alt | default: include.caption | strip_html | escape }}" style="width: {{ include.width | default: '100%' }}" loading="lazy">
+  {% if include.caption %}<figcaption><span>{{ include.caption | markdownify | remove: '<p>' | remove: '</p>' }}</span></figcaption>{% endif %}
+</figure>

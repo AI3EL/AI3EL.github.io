@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% seo %}
+  {% feed_meta %}
+  <link rel="icon" href="{{ '/favicon-32.png' | relative_url }}" sizes="32x32" type="image/png">
+  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  {% if page.math != false %}
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        macros: { E: "\\mathbb{E}", argmax: "\\operatorname*{arg\\,max}" }
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  {% endif %}
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="{{ '/' | relative_url }}">{{ site.author }}</a>
+    <span class="nav-links">
+      <a href="{{ '/#posts' | relative_url }}">Blog</a>
+      <a href="{{ '/tags/' | relative_url }}">Tags</a>
+    </span>
+  </nav>
+  <main class="container">
+    {{ content }}
+  </main>
+  <footer class="site-footer">
+    &copy; {{ site.time | date: "%Y" }} {{ site.author }}
+  </footer>
+</body>
+</html>

@@ -1,0 +1,40 @@
+---
+layout: default
+title: Home
+---
+<section class="profile">
+  <img src="https://github.com/{{ site.github_username }}.png?size=300" alt="{{ site.author }}">
+  <div>
+    <h1>{{ site.author }}</h1>
+    <p>
+      Hi, I'm Abel. I work on reinforcement learning and imitation learning, with a particular
+      interest in agents for video games and real-time environments.
+      My current focus is on Vision-Language-Action models (VLAs) and world models.
+    </p>
+    <p>
+      This blog is where I write down ideas, small experiments and lessons learned along the way.
+      Away from the keyboard, you will most likely find me
+      <a href="https://www.camptocamp.org/profiles/1573739/fr/ai3el">in the mountains</a>!
+    </p>
+    <p>
+      Questions about a post, a different take, or just want to chat about RL, world models or
+      mountains? Feel free to send me an email, I'm always happy to discuss.
+    </p>
+    <p class="contact">firstname [dot] lastname [at] gmail [dot] com</p>
+    <p class="disclaimer">
+      The ideas and opinions on this blog are my own and do not reflect the views of my
+      current or past employers.
+    </p>
+  </div>
+</section>
+
+<h2 id="posts">Blog</h2>
+<ul class="post-list">
+  {% for post in site.posts %}
+  <li>
+    <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <span class="date">&middot; {{ post.date | date: "%B %Y" }}</span>
+    {% include tags.html tags=post.tags %}
+  </li>
+  {% endfor %}
+</ul>

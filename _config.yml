@@ -1,0 +1,27 @@
+title: Abel
+author: Abel
+description: Notes on reinforcement learning, imitation learning and generative models.
+url: "https://ai3el.github.io"
+baseurl: ""
+github_username: AI3EL
+timezone: Europe/Paris
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+permalink: /blog/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - scripts/
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/
+  - .venv/

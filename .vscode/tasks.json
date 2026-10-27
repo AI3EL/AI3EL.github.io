@@ -1,0 +1,20 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Blog: live preview",
+      "type": "shell",
+      "command": "bundle exec jekyll serve --livereload --drafts",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "jekyll",
+        "pattern": { "regexp": "^\\s*(Error|Liquid Exception):\\s+(.*)$", "message": 2 },
+        "background": {
+          "activeBegins": "^\\s*Generating\\.\\.\\.",
+          "activeEnds": "Server running|done in"
+        }
+      },
+      "group": { "kind": "build", "isDefault": true }
+    }
+  ]
+}
