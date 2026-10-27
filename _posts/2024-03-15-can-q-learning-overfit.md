@@ -3,6 +3,7 @@ layout: post
 title: "Can Q-learning overfit?"
 description: "A classic deep-learning sanity check that silently fails for offline Q-learning, and why."
 date: 2024-03-15 10:00:00 +0100
+image: /assets/img/q-learning-overfit/max-noise.png
 tags: [short-post, q-learning]
 ---
 

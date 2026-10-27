@@ -3,6 +3,7 @@ layout: post
 title: "Ordering in masked discrete diffusion"
 description: "Once a token is unmasked it is frozen. So in which order should we unmask an action chunk?"
 date: 2026-09-15 10:00:00 +0200
+image: /assets/img/masked-diffusion-ordering/learned.png
 tags: [short-post, diffusion, action-chunks]
 ---
 

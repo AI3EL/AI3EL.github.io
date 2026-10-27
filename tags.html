@@ -7,11 +7,11 @@ permalink: /tags/
 
 <p class="tag-index">
   {% assign tags = site.tags | sort %}
-  {% for tag in tags %}<a class="tag tag-{{ tag[0] | slugify }}" href="#{{ tag[0] | slugify }}">{{ tag[0] }} <span class="count">{{ tag[1].size }}</span></a>{% endfor %}
+  {% for tag in tags %}<a class="tag tag-{{ tag[0] | slugify }}" href="#{{ tag[0] | slugify }}">{{ site.data.tag_names[tag[0]] | default: tag[0] }} <span class="count">{{ tag[1].size }}</span></a>{% endfor %}
 </p>
 
 {% for tag in tags %}
-<h2 id="{{ tag[0] | slugify }}" class="tag-heading">{{ tag[0] }}</h2>
+<h2 id="{{ tag[0] | slugify }}" class="tag-heading">{{ site.data.tag_names[tag[0]] | default: tag[0] }}</h2>
 <ul class="post-list">
   {% for post in tag[1] %}
   <li>

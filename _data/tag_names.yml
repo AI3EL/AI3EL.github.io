@@ -1,0 +1,4 @@
+# Display names for tags whose slug is lowercase. Tags not listed are shown as-is.
+mcts: MCTS
+pidm: PIDM
+pomdp: POMDP

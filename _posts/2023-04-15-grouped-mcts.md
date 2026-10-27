@@ -2,6 +2,8 @@
 layout: post
 title: "Grouped MCTS: searching tactical games one battle at a time"
 date: 2023-04-15 10:00:00 +0200
+description: "Tactical games split into local battles. Exploiting this helps MCTS with the end-turn problem, credit assignment and the size of the search tree."
+image: /assets/img/grouped-mcts/grouped-tree.png
 tags: [medium-post, mcts, model-based, online, action-space]
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title: "World models as DAgger-style augmentation factories for imitation"
 description: "Using a world model and a predictive inverse dynamics model to generate recovery data for low-data imitation learning."
 date: 2026-10-25 10:00:00 +0200
+image: /assets/img/world-model-augmentation/augmentation.png
 tags: [medium-post, pidm, world-models, few-shot, imitation]
 ---
 

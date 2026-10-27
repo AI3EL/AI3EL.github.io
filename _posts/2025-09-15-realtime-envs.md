@@ -2,6 +2,8 @@
 layout: post
 title: "Action frequency and real-time environments"
 date: 2025-09-15 10:00:00 +0200
+description: "How the action frequency affects real-time agents: action independence, argmax vs sampling, latency, partial observability and data."
+image: /assets/img/realtime-envs/latency.png
 tags: [medium-post, real-time-env, action-space, pomdp]
 ---
 

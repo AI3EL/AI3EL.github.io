@@ -123,4 +123,12 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
   color: #555;
   font-size: 15px;
 }
-.post-contact .email { font-family: Consolas, Menlo, monospace; white-space: nowrap; }
+.post-contact .email { font-family: Consolas, Menlo, monospace; }
+
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .post-title { font-size: 26px; }
+  .post-header { margin: 24px 0 26px; }
+  .container, .site-nav { padding-left: 16px; padding-right: 16px; }
+}
+mjx-container[display="true"] { max-width: 100%; }

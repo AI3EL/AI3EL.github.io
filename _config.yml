@@ -15,7 +15,6 @@ kramdown:
 permalink: /blog/:title/
 
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
 
 exclude:
