@@ -76,16 +76,16 @@ def unit(ax, x, y, color, label=None):
 
 def sub_battles():
     """A big map with two local battles; groups and counter groups."""
-    w, h = 16, 9
-    fig, ax = plt.subplots(figsize=(7.2, 4.1))
+    w, h = 22, 11
+    fig, ax = plt.subplots(figsize=(7.6, 3.9))
     map_grid(ax, w, h)
-    north_blue, north_red = [(2, 6), (3, 7), (4, 6)], [(6, 7), (7, 6), (6, 5)]
-    south_blue, south_red = [(9, 1), (10, 2), (11, 1), (9, 3)], [(13, 2), (14, 1), (13, 3)]
+    north_blue, north_red = [(1, 7), (2, 8), (3, 7)], [(5, 8), (6, 7), (5, 6)]
+    south_blue, south_red = [(14, 1), (15, 2), (16, 1), (14, 3)], [(18, 2), (19, 1), (18, 3)]
     for x, y in north_blue + south_blue:
         unit(ax, x, y, BLUE)
     for x, y in north_red + south_red:
         unit(ax, x, y, RED)
-    for (x0, y0, ww, hh, lab, col) in [(1.6, 4.6, 6.8, 3.8, "battle 1", PURPLE), (8.6, 0.6, 6.8, 3.8, "battle 2", GREEN)]:
+    for (x0, y0, ww, hh, lab, col) in [(0.6, 5.6, 6.8, 3.8, "battle 1", PURPLE), (13.6, 0.6, 6.8, 3.8, "battle 2", GREEN)]:
         ax.add_patch(FancyBboxPatch((x0, y0), ww, hh, boxstyle="round,pad=0,rounding_size=0.5", fc="none",
                                     ec=col, lw=2, ls="--", zorder=2))
         ax.text(x0 + 0.15, y0 + hh + 0.12, lab, color=col, fontsize=10, va="bottom")
